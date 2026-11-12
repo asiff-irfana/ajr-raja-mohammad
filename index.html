@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Raja Mohammad — Indian film editor. A cinematic portfolio presented by AJR.">
+<title>Raja Mohammad | AJR Cinematic Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#071719;--panel:#0d2527;--panel2:#123235;--gold:#c47b52;--gold2:#e8b18a;--muted:#a9b7b3;--white:#f1eee6;--line:rgba(196,123,82,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}body.loading{overflow:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit}.serif{font-family:'Cormorant Garamond',serif}.gold{color:var(--gold)}.wrap{width:min(1160px,90%);margin:auto}
+#loader{position:fixed;inset:0;z-index:1000;background:#070707;display:grid;place-items:center;transition:opacity .8s,visibility .8s}
+#loader.hide{opacity:0;visibility:hidden}.loader-inner{text-align:center;width:min(500px,84vw)}
+.loader-logo{width:min(310px,72vw);margin:0 auto 22px;animation:markPulse 2s infinite}.loader-logo img{display:block;width:100%;height:auto;mix-blend-mode:screen}.loader-title{font-size:10px;letter-spacing:.42em;color:#ddd;text-transform:uppercase}
+.timeline-loader{height:2px;background:#28231b;margin:28px auto 12px;overflow:hidden}.timeline-loader i{display:block;height:100%;width:0;background:var(--gold);animation:load 2.1s ease forwards}
+.loader-caption{font-size:9px;color:#777;letter-spacing:.22em;text-transform:uppercase}
+@keyframes load{to{width:100%}}@keyframes markPulse{50%{box-shadow:0 0 32px #c9a96e44}}
+.cursor-glow{position:fixed;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#c9a96e0c,transparent 68%);pointer-events:none;z-index:0;transform:translate(-50%,-50%)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:50;padding:20px 0;transition:.35s;border-bottom:1px solid transparent}
+nav.scrolled{background:#090909eF;backdrop-filter:blur(16px);border-color:#ffffff12;padding:13px 0}
+.navrow{display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.brand-logo{width:64px;height:48px;object-fit:contain;mix-blend-mode:screen}
+.navlinks{display:flex;gap:28px;align-items:center}.navlinks a{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#c8c3b9;transition:.25s}.navlinks a:hover{color:var(--gold)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--gold);padding:8px 11px}
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:130px 0 90px;background:radial-gradient(ellipse at 76% 46%,#b66d4230 0,transparent 38%),linear-gradient(110deg,#071719 20%,#10292b 100%)}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#090909 0%,#090909bb 46%,transparent 100%),repeating-linear-gradient(90deg,transparent 0 78px,#ffffff06 79px 80px);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:55px;align-items:center;position:relative;z-index:1}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--gold);font-size:9px;letter-spacing:.35em;text-transform:uppercase}.eyebrow:before{content:"";width:34px;height:1px;background:var(--gold)}
+.hero h1{font:500 clamp(62px,9vw,116px)/.83 'Cormorant Garamond',serif;letter-spacing:-.055em;margin:28px 0 20px}.hero h1 span{display:block;color:var(--gold);font-style:italic}
+.hero-sub{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#d3cec4;margin:0 0 24px}
+.hero-copy{max-width:480px;color:var(--muted);font-size:14px;line-height:1.9;font-weight:300}
+.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}.btn{display:inline-flex;align-items:center;gap:13px;padding:14px 20px;border:1px solid var(--gold);font-size:9px;letter-spacing:.2em;text-transform:uppercase;transition:.3s}.btn.primary{background:var(--gold);color:#111}.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px #c9a96e22}.btn.secondary{color:var(--gold)}
+.portrait-frame{position:relative;max-width:420px;margin-left:auto;width:100%;aspect-ratio:4/5;border:1px solid var(--line);padding:13px}
+.portrait-frame:before,.portrait-frame:after{content:"";position:absolute;width:65px;height:65px;border-color:var(--gold);border-style:solid;z-index:2}.portrait-frame:before{top:-5px;left:-5px;border-width:1px 0 0 1px}.portrait-frame:after{bottom:-5px;right:-5px;border-width:0 1px 1px 0}
+.portrait-placeholder{height:100%;width:100%;background:linear-gradient(145deg,#244447,#153032 48%,#071719);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;position:relative;overflow:hidden}
+.portrait-placeholder img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:none}.portrait-placeholder.has-image img{display:block}
+.portrait-placeholder:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#090909b8,transparent 65%),repeating-linear-gradient(135deg,transparent 0 30px,#ffffff08 31px 32px)}
+.portrait-icon{width:110px;height:110px;border:1px solid #c9a96e77;border-radius:50%;display:grid;place-items:center;color:var(--gold);font:50px 'Cormorant Garamond';position:relative}
+.portrait-note{position:relative;margin-top:20px;font-size:9px;letter-spacing:.2em;color:#c6b99f;text-transform:uppercase}.frame-label{position:absolute;bottom:26px;left:28px;z-index:3;font-size:8px;letter-spacing:.2em;color:#ddd;text-transform:uppercase}
+.hero-index{position:absolute;right:5%;bottom:32px;color:#777;font-size:9px;letter-spacing:.2em}
+section{padding:110px 0;position:relative}.section-head{margin-bottom:45px}.section-kicker{color:var(--gold);font-size:9px;letter-spacing:.35em;text-transform:uppercase}.section-title{font:500 clamp(42px,6vw,68px)/.95 'Cormorant Garamond',serif;margin:14px 0 0;letter-spacing:-.035em}.section-title em{color:var(--gold);font-weight:400}.section-desc{max-width:560px;color:var(--muted);font-size:13px;line-height:1.9;margin-top:18px}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}.about-stamp{border:1px solid var(--line);padding:30px;text-align:center;background:linear-gradient(145deg,#17140f,#0b0b0b)}.stamp-number{font:78px/.9 'Cormorant Garamond';color:var(--gold)}.stamp-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#aaa;margin-top:15px}
+.about-text{color:#c0bbb1;font-size:14px;line-height:2}.about-text p{margin:0 0 18px}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.fact{border-top:1px solid var(--line);padding-top:14px}.fact strong{display:block;font:27px 'Cormorant Garamond';color:var(--gold)}.fact span{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#8f8a80}
+.awards{background:linear-gradient(180deg,#0a2022,#102a2c 50%,#071719)}.award-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.award-card{border:1px solid var(--gold);padding:30px;display:flex;gap:22px;align-items:center;background:linear-gradient(135deg,#c47b5220,#ffffff04 70%);box-shadow:inset 0 0 35px #c47b520c;transition:.3s}.award-card:hover{border-color:#c9a96e88;transform:translateY(-4px)}.award-icon{width:64px;height:64px;flex:0 0 64px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:27px;background:#c47b5218;box-shadow:0 0 24px #c47b5222}.award-card small{font-size:8px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}.award-card h3{font:26px 'Cormorant Garamond';margin:6px 0}.award-card p{font-size:11px;color:var(--muted);margin:0;line-height:1.6}
+.filmography{background:#0a0a0a}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 30px}.filter{background:transparent;color:#aaa;border:1px solid #ffffff20;padding:10px 15px;font-size:8px;letter-spacing:.17em;text-transform:uppercase;cursor:pointer;transition:.25s}.filter.active,.filter:hover{background:var(--gold);border-color:var(--gold);color:#111}
+.film-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.film-card{min-width:0;background:var(--panel);border:1px solid #ffffff12;transition:.35s;overflow:hidden;position:relative}.film-card:hover{transform:translateY(-6px);border-color:#c9a96e77;box-shadow:0 18px 35px #0008}.film-art{aspect-ratio:3/4;position:relative;overflow:hidden;background:linear-gradient(145deg,#49362f 0%,#252626 42%,#080a0b 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.film-art:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#080808dd,transparent 70%),repeating-linear-gradient(135deg,transparent 0 26px,#ffffff08 27px 28px)}
+.film-art .art-title{position:relative;z-index:2;font:500 clamp(18px,2vw,27px)/.95 'Cormorant Garamond',serif;color:#e5d4b5;text-shadow:0 2px 15px #000}.film-art .art-year{position:absolute;z-index:3;top:13px;left:13px;font-size:13px;font-weight:700;letter-spacing:.12em;color:#f0c19c;border:1px solid #c47b5277;padding:7px 10px;border-radius:2px}.film-art .poster-credit{position:absolute;z-index:3;bottom:14px;font-size:7px;letter-spacing:.22em;color:#d6a17e}
+.film-info{padding:15px}.film-info h3{font:22px 'Cormorant Garamond';font-weight:500;margin:0 0 5px}.film-meta{display:flex;justify-content:space-between;gap:8px;color:#8e897f;font-size:8px;letter-spacing:.13em;text-transform:uppercase}.film-award{display:inline-flex;align-items:center;gap:6px;margin-top:9px;padding:5px 8px;border:1px solid rgba(232,177,138,.55);border-radius:2px;color:#f0c19c;font-size:10px;letter-spacing:.07em;text-transform:uppercase;line-height:1.35}.film-award:before{content:"✦";font-size:11px}.film-link{display:inline-block;color:var(--gold);font-size:8px;letter-spacing:.18em;text-transform:uppercase;margin-top:13px}.film-link:hover{color:var(--gold2)}
+.no-results{color:#999;display:none;padding:25px 0}.film-note{font-size:10px;color:#777;margin-top:22px;line-height:1.8}
+.workflow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.workflow{background:#0d0d0d;padding:25px 20px;min-height:170px}.workflow .num{font:32px 'Cormorant Garamond';color:var(--gold)}.workflow h3{font:22px 'Cormorant Garamond';margin:14px 0 7px}.workflow p{font-size:10px;line-height:1.7;color:var(--muted);margin:0}
+.gallery{background:#0b2224}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.gallery-slot{aspect-ratio:4/3;border:1px dashed #c9a96e66;background:linear-gradient(135deg,#1b1915,#0d0d0d);display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;overflow:hidden;color:#8d8069}.gallery-slot input{position:absolute;inset:0;opacity:0;cursor:pointer}.gallery-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}.gallery-slot.has-image img{display:block}.gallery-slot.has-image .slot-label{display:none}.slot-plus{font-size:26px;color:var(--gold);margin-bottom:8px}.slot-label{font-size:8px;letter-spacing:.2em;text-transform:uppercase}
+.contact{text-align:center;padding-bottom:130px}.contact .section-title{max-width:700px;margin:15px auto}.contact p{color:var(--muted);font-size:13px;line-height:1.8;max-width:530px;margin:20px auto 30px}
+footer{border-top:1px solid #ffffff14;padding:25px 0;color:#777;font-size:8px;letter-spacing:.14em;text-transform:uppercase}.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.reveal.visible{opacity:1;transform:none}
+.film-strip{position:absolute;top:0;left:0;right:0;height:12px;opacity:.15;background:repeating-linear-gradient(90deg,#d6c39e 0 16px,transparent 16px 26px)}
+@media(max-width:900px){.hero-grid{gap:30px}.film-grid{grid-template-columns:repeat(3,1fr)}.workflow-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:35px}}
+@media(max-width:650px){.brand-logo{width:52px;height:40px}nav{padding:14px 0}.menu-btn{display:block}.navlinks{display:none;position:absolute;top:62px;left:5%;right:5%;padding:18px;background:#10100f;border:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.hero{padding:120px 0 70px}.hero-grid{grid-template-columns:1fr;gap:45px}.hero h1{font-size:76px}.portrait-frame{max-width:330px;margin:0 auto}.hero-index{display:none}section{padding:78px 0}.about-grid{grid-template-columns:1fr;gap:30px}.about-stamp{max-width:330px}.facts{grid-template-columns:repeat(3,1fr)}.award-grid{grid-template-columns:1fr}.film-grid{grid-template-columns:repeat(2,1fr);gap:10px}.film-info{padding:11px}.film-info h3{font-size:19px}.workflow-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,1fr)}.section-head{margin-bottom:32px}}
+@media(max-width:380px){.film-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:64px}.facts{gap:6px}.fact strong{font-size:22px}}
+
+.award-photo-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+    margin-top:22px;
+}
+
+.award-photo-grid figure{
+    margin:0;
+    overflow:hidden;
+    border:1px solid #c9a96e55;
+    background:#101516;
+}
+
+.award-photo-grid img {
+  display: block;
+  width: 85%;
+  height: 85%;
+  margin: auto;
+  object-fit: contain;
+}
+
+.award-photo-grid figcaption{
+    padding:10px 12px;
+    color:#d7c5a4;
+    font-size:11px;
+    letter-spacing:.06em;
+}
+/* 10 Personal Archives Images */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.gallery-photo {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  max-height: 340px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.gallery-photo figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.gallery-photo:hover img{transform:scale(1.04)}
+.gallery-photo{aspect-ratio:4/3;position:relative}
+.gallery-photo figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.9));padding-top:35px}
+@media(max-width:760px){.award-photo-grid{grid-template-columns:1fr 1fr}.award-photo-grid img{height:190px}.gallery-grid{grid-template-columns:1fr 1fr}.gallery-photo img{min-height:150px;max-height:none}}
+</style>
+</head>
+<body class="loading">
+<div id="loader"><div class="loader-inner"><div class="loader-logo"><img src="assets/ajr-motion-studios-logo.png" alt="AJR Motion Studios logo"></div><div class="loader-title">A cinematic presentation</div><div class="timeline-loader"><i></i></div><div class="loader-caption">Preparing the timeline · Please wait</div></div></div>
+<div class="cursor-glow" id="glow"></div>
+<nav id="nav"><div class="wrap navrow">
+<a class="brand" href="#home"><img class="brand-logo" src="assets/ajr-motion-studios-logo.png" alt="AJR Motion Studios logo"><span>Motion Studios <b class="gold">|</b> Cinema Portfolio</span></a>
+<button class="menu-btn" id="menuBtn" aria-label="Open navigation">MENU</button>
+<div class="navlinks" id="navlinks"><a href="#about">About</a><a href="#awards">Recognition</a><a href="#films">Filmography</a><a href="#craft">The Craft</a><a href="#gallery">Gallery</a></div>
+</div></nav>
+<header class="hero" id="home"><div class="film-strip"></div><div class="wrap hero-grid">
+<div class="hero-content">
+<div class="eyebrow">The art of storytelling</div>
+<h1 class="serif">Raja <span>Mohammad.</span></h1>
+<p class="hero-sub">Indian Film Editor · 2003 — Present</p>
+<p class="hero-copy">Every frame has a purpose. Every cut carries an emotion. Explore the cinematic journey of film editor Raja Mohammad, whose work moves across Tamil, Malayalam and Telugu cinema.</p>
+<div class="actions"><a class="btn primary" href="#films">Explore Filmography <span>↗</span></a><a class="btn secondary" href="#about">Discover His Journey <span>↓</span></a></div>
+</div>
+<div class="portrait-placeholder" id="mainPortrait">
+    <img alt="Raja Mohammad portrait" src="assets/raja-mohammad-portrait.jpg">
+</div>
+</div><div class="hero-index">01 / THE EDITOR'S JOURNEY</div></header>
+<main>
+<section id="about"><div class="wrap about-grid">
+<div class="about-stamp reveal"><div class="stamp-number">2003</div><div class="stamp-label">The beginning of a Tamil cinema journey</div></div>
+<div class="reveal"><div class="section-kicker">01 — The Story</div><h2 class="section-title">A career shaped<br>by <em>the cut.</em></h2>
+<div class="about-text"><p>Raja Mohammad is an Indian film editor associated with Tamil, Malayalam and Telugu cinema. His career spans multiple film industries, bringing stories together through rhythm, pacing and visual continuity.</p><p>His first Tamil venture was <em>Nala Damayanthi</em> (2003). His editing work on <em>Paruthiveeran</em> (2007) earned him the National Film Award for Best Editing. He later received the Vijay Award for Best Editor for <em>Subramaniapuram</em> (2008).</p></div>
+<div class="facts"><div class="fact"><strong>3</strong><span>Film industries</span></div><div class="fact"><strong>2003</strong><span>First Tamil film</span></div><div class="fact"><strong>20+</strong><span>Years in cinema</span></div></div></div>
+</div></section>
+<section class="awards" id="awards"><div class="wrap"><div class="section-head reveal"><div class="section-kicker">02 — Recognition</div><h2 class="section-title">Milestones of <em>excellence.</em></h2><p class="section-desc">Recognition for the craft of shaping performances, scenes and stories into memorable cinema.</p></div>
+<div class="award-grid">
+<div class="award-card reveal"><div class="award-icon">✦</div><div><small>NATIONAL FILM AWARD · 2006 AWARD YEAR</small><h3>Best Editing</h3><p><strong class="gold">Paruthiveeran</strong> — Silver Lotus (Rajat Kamal) recognition.</p></div></div>
+<div class="award-card reveal"><div class="award-icon">✧</div><div><small>VIJAY AWARDS · 2008</small><h3>Best Editor</h3><p><strong class="gold">Subramaniapuram</strong> (2008).</p></div></div>
+</div>
+<div class="award-photo-grid">
+<figure><img src="assets/national-film-awards-ceremony.jpeg" alt="National Film Awards ceremony photograph"><figcaption>National Film Awards — ceremony photograph</figcaption></figure>
+<figure><img src="assets/state-film-award.jpeg" alt="Tamil Nadu State Film Award display"><figcaption>Tamil Nadu State Film Award</figcaption></figure>
+<figure><img src="assets/golden-trophies.jpeg" alt="Film industry trophies"><figcaption>Film industry recognitions</figcaption></figure>
+</div>
+</div></section>
+<section class="filmography" id="films"><div class="wrap"><div class="section-head reveal"><div class="section-kicker">03 — Selected & listed credits</div><h2 class="section-title">The <em>filmography.</em></h2><p class="section-desc">Explore the filmography cross-checked against independent film databases (Venpura, Moviebuff, TamilMDb and BookMyShow), arranged as a cinematic poster gallery by film industry. Select any title to open Google results for its release year, director, cast and movie information.</p></div>
+<div class="filters reveal"><button class="filter active" data-filter="all">All Films</button><button class="filter" data-filter="Tamil">Tamil</button><button class="filter" data-filter="Malayalam">Malayalam</button><button class="filter" data-filter="Telugu">Telugu</button></div>
+<div class="film-grid" id="filmGrid"></div><div class="no-results" id="noResults">No films in this category.</div>
+<p class="film-note">Filmography is cross-checked against independent film databases including Venpura, Moviebuff, TamilMDb and BookMyShow. All film cards use a consistent clean, image-free cinematic title-card style. IMDb profile: https://www.imdb.com/name/nm1527153/. Please verify individual credits and add official film links or licensed poster artwork before public launch.</p>
+</div></section>
+<section id="craft"><div class="wrap"><div class="section-head reveal"><div class="section-kicker">04 — Behind the frame</div><h2 class="section-title">The craft of <em>editing.</em></h2><p class="section-desc">A visual interpretation of the post-production process — designed as a tribute to the precision and creativity behind every finished frame.</p></div>
+<div class="workflow-grid">
+<div class="workflow reveal"><div class="num">01</div><h3>Story & Structure</h3><p>Finding the emotional core and shaping the narrative flow.</p></div>
+<div class="workflow reveal"><div class="num">02</div><h3>Picture Editing</h3><p>Building scenes through timing, rhythm, continuity and pace.</p></div>
+<div class="workflow reveal"><div class="num">03</div><h3>Sound & Colour</h3><p>Working with sound, music and visual tone to support the story.</p></div>
+<div class="workflow reveal"><div class="num">04</div><h3>Final Cut</h3><p>Refining the sequence into a cohesive cinematic experience.</p></div>
+</div></div></section>
+<section class="gallery" id="gallery"><div class="wrap"><div class="section-head reveal"><div class="section-kicker">05 — Personal archive</div><h2 class="section-title">Frames beyond <em>the screen.</em></h2><p class="section-desc">Add approved portraits, behind-the-scenes moments, editing-room photographs and production stills. Click any frame to upload an image locally.</p></div>
+<div class="gallery-grid"><figure class="gallery-photo"><img src="assets/award-cabinet-wide.jpeg" alt="Awards collection"><figcaption>Awards collection</figcaption></figure><figure class="gallery-photo"><img src="assets/award-shelf.jpeg" alt="Awards display"><figcaption>Awards display</figcaption></figure><figure class="gallery-photo"><img src="assets/film-award-trophy.jpeg" alt="Film award trophy"><figcaption>Film award trophy</figcaption></figure><figure class="gallery-photo"><img src="assets/golden-trophies.jpeg" alt="Trophies"><figcaption>Trophies</figcaption></figure><figure class="gallery-photo"><img src="assets/silver-jubilee-award.jpeg" alt="100-film milestone"><figcaption>100-film milestone</figcaption></figure><figure class="gallery-photo"><img src="assets/state-film-award.jpeg" alt="Tamil Nadu State Film Award"><figcaption>Tamil Nadu State Film Award</figcaption></figure><figure class="gallery-photo"><img src="assets/veteran-award-frame.jpeg" alt="Recognition"><figcaption>Recognition</figcaption></figure><figure class="gallery-photo"><img src="assets/national-film-awards-ceremony.jpeg" alt="National Film Awards ceremony"><figcaption>National Film Awards ceremony</figcaption></figure><figure class="gallery-photo"><img src="assets/film-poster-tribute.jpeg" alt="Film tribute"><figcaption>Film tribute</figcaption></figure><figure class="gallery-photo"><img src="assets/vijay-award-nomination.jpeg" alt="Vijay Awards nomination"><figcaption>Vijay Awards nomination</figcaption></figure></div></div></section>
+<section class="contact"><div class="wrap reveal"><div class="section-kicker">06 — The closing frame</div><h2 class="section-title">The story continues <em>after the cut.</em></h2><p>Professional enquiries and collaborations.</p><div class="actions" style="justify-content:center"><a class="btn secondary" href="tel:+919543310100">Phone: +91 95433 10100</a><a class="btn secondary" href="mailto:ajrmotionstudios@gmail.com">Email: ajrmotionstudios@gmail.com</a></div></div></section>
+</main>
+<footer><div class="wrap footer-row"><span>© <span id="year"></span> AJR · Cinematic Portfolio</span><span>Designed with respect for the craft of cinema</span><a href="#home">Back to top ↑</a></div></footer>
+<script>
+const films = [
+["Nala Damayanthi",2003,"Tamil"],["Joot",2003,"Tamil"],["Udhaya",2004,"Tamil"],["Raam",2005,"Tamil"],["Manathodu Mazhaikalam",2006,"Tamil"],["Paruthiveeran",2007,"Tamil"],["Machakaaran",2007,"Tamil"],["Puli Varudhu",2007,"Tamil"],["Subramaniapuram",2008,"Tamil"],["Thenavattu",2008,"Tamil"],["Aval Peyar Thamizharasi",2010,"Tamil"],["Irumbukkottai Murattu Singam",2010,"Tamil"],["Kalavani",2010,"Tamil"],["Virunthali",2010,"Tamil"],["Mandhira Punnagai",2010,"Tamil"],["Markandeyan",2011,"Tamil"],["Potta Potti",2011,"Tamil"],["Mounaguru",2011,"Tamil"],["Bramman",2014,"Tamil"],["Amara",2014,"Tamil"],["Eetti",2015,"Tamil"],["Wagah",2016,"Tamil"],["Thiruttu Payale 2",2017,"Tamil"],["Thorati",2019,"Tamil"],["Michaelpatty Raja",2021,"Tamil"],["Kasada Thapara",2021,"Tamil"],["Sinam",2022,"Tamil"],["Va Varalam Va",2023,"Tamil"],["Padaiyaanda Maaveeraa",2025,"Tamil"],
+["Nakshathrakkannulla Rajakumaran Avanundoru Rajakumari",2002,"Malayalam"],["Swapnam Kondu Thulabharam",2003,"Malayalam"],["Chakram",2003,"Malayalam"],["Kaazhcha",2004,"Malayalam"],["Immini Nalloraal",2005,"Malayalam"],["Thanmathra",2005,"Malayalam"],["Madhuchandralekha",2006,"Malayalam"],["Chakkara Muthu",2006,"Malayalam"],["Palunku",2006,"Malayalam"],["Avan Chandiyude Makan",2007,"Malayalam"],["Romeoo",2007,"Malayalam"],["My Big Father",2009,"Malayalam"],["Chemistry",2009,"Malayalam"],["April Fool",2010,"Malayalam"],["Pranayam",2011,"Malayalam"],["Innanu Aa Kalyanam",2011,"Malayalam"],["Mamangam",2019,"Malayalam"],
+["Seethakoka Chiluka",2006,"Telugu"]
+];
+
+const grid=document.getElementById('filmGrid');
+function renderFilms(filter='all'){
+ grid.innerHTML='';
+ const chosen=films.filter(f=>filter==='all'||f[2]===filter);
+ chosen.forEach((f,i)=>{
+  const card=document.createElement('article');card.className='film-card reveal';
+  const movieQuery=encodeURIComponent(`${f[0]} ${f[1]} film cast director release date`);
+  const award = f[0] === "Paruthiveeran" ? "National Film Award – Best Editing · Ananda Vikatan Best Editor" : (f[0] === "Subramaniapuram" ? "Vijay Award – Best Editor" : "");
+  card.innerHTML=`<a href="https://www.google.com/search?q=${movieQuery}" target="_blank" rel="noopener" aria-label="Google search for ${f[0]} movie details"><div class="film-art"><span class="art-year">${f[1]}</span><span class="art-title">${f[0]}</span></div><div class="film-info"><h3>${f[0]}</h3><div class="film-meta"><span>${f[2]} cinema</span><span>${f[1]}</span></div>${award ? `<span class="film-award">${award}</span>` : ""}<span class="film-link">Google movie details ↗</span></div></a>`;
+  grid.appendChild(card);
+ });
+ document.getElementById('noResults').style.display=chosen.length?'none':'block';
+ observeReveals();
+}
+renderFilms();
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderFilms(btn.dataset.filter);
+}));
+function observeReveals(){
+ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
+ document.querySelectorAll('.reveal:not(.visible)').forEach(el=>io.observe(el));
+}
+observeReveals();
+window.addEventListener('load',()=>setTimeout(()=>{document.getElementById('loader').classList.add('hide');document.body.classList.remove('loading')},2200));
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>30));
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.querySelectorAll('.gallery-slot input').forEach(input=>input.addEventListener('change',e=>{
+ const file=e.target.files[0];if(!file)return;const url=URL.createObjectURL(file);const slot=e.target.closest('.gallery-slot');slot.querySelector('img').src=url;slot.classList.add('has-image');
+}));
+const glow=document.getElementById('glow');window.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+// Main portrait: add assets/raja-mohammad-portrait.jpg to display the approved portrait.
+const portrait=document.querySelector('#mainPortrait img');
+function showPortrait(){document.getElementById('mainPortrait').classList.add('has-image')}
+if(portrait.complete&&portrait.naturalWidth>0){showPortrait()}
+else{portrait.addEventListener('load',showPortrait,{once:true})}
+portrait.addEventListener('error',()=>console.error('Portrait image not found. Check that assets/raja-mohammad-portrait.jpg exists and the filename matches exactly.'),{once:true});
+</script>
+</body></html>
