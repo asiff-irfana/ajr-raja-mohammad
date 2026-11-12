@@ -124,6 +124,14 @@ footer{border-top:1px solid #ffffff14;padding:25px 0;color:#777;font-size:8px;le
 .gallery-photo{aspect-ratio:4/3;position:relative}
 .gallery-photo figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.9));padding-top:35px}
 @media(max-width:760px){.award-photo-grid{grid-template-columns:1fr 1fr}.award-photo-grid img{height:190px}.gallery-grid{grid-template-columns:1fr 1fr}.gallery-photo img{min-height:150px;max-height:none}}
+.portrait-placeholder:before {
+    z-index: 1;
+    pointer-events: none;
+}
+
+.portrait-placeholder img {
+    z-index: 0;
+}
 </style>
 </head>
 <body class="loading">
@@ -142,8 +150,10 @@ footer{border-top:1px solid #ffffff14;padding:25px 0;color:#777;font-size:8px;le
 <p class="hero-copy">Every frame has a purpose. Every cut carries an emotion. Explore the cinematic journey of film editor Raja Mohammad, whose work moves across Tamil, Malayalam and Telugu cinema.</p>
 <div class="actions"><a class="btn primary" href="#films">Explore Filmography <span>↗</span></a><a class="btn secondary" href="#about">Discover His Journey <span>↓</span></a></div>
 </div>
-<div class="portrait-placeholder" id="mainPortrait">
-    <img alt="Raja Mohammad portrait" src="assets/raja-mohammad-portrait.jpg">
+<div class="portrait-frame">
+    <div class="portrait-placeholder" id="mainPortrait">
+        <img alt="Raja Mohammad portrait" src="assets/raja-mohammad-portrait.jpg">
+    </div>
 </div>
 </div><div class="hero-index">01 / THE EDITOR'S JOURNEY</div></header>
 <main>
